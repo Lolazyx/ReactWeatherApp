@@ -12,21 +12,22 @@ box-shadow: 0 3px 6px 0 #555;
 padding: 20px 20px;
 border-radius: 4px;
 width: auto;
-background-color: lightblue;
+background-color: #36393F;
 font-family: 'Kodchasan', sans-serif;
 `;
 
 const AppLabel = styled.span`
-color: black;
-font-size: 18px;
+color: white;
+font-size: 32px;
 font-weight: bold;
 `;
 
 function App() {
   return (
     <Container>
-    <AppLabel>ตรวจดูสภาพอากาศ</AppLabel> 
+    <AppLabel>Weather App</AppLabel> 
     <CityComponent />
+    <WeatherComponent />
     </Container>
   );
 }
