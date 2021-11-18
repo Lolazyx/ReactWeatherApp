@@ -12,7 +12,6 @@ color: White;
 font-size: 18px;
 font-weight: bold;
 margin: 10px auto;
-
 `;
 
 const SearchBox = styled.form`
@@ -62,16 +61,17 @@ cursor: pointer;
 }
 `;
 
-const CityComponent =()=>{
+const CityComponent =(props)=>{
+  const {updateCity, fetchWeather} = props;
   return (
     <>
     <WeatherLogo src="/icon/weathericon.png" />
     <ChooseCityLabel>Fide weather of your city</ChooseCityLabel>
-    <SearchBox>
- <input placeholder="City"/>
+    <SearchBox onSubmit={fetchWeather}>
+ <input placeholder="City" onChange={(e)=>updateCity(e.target.value)}/>
     </SearchBox>
     <SearchButton>
-    <button>Search</button>
+    <button type="submit">Search</button>
     </SearchButton>
     </>
   );
