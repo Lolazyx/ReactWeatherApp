@@ -5,10 +5,11 @@ import WeatherComponent from "./modules/WeatherInfoComponent"
 
 const Container = styled.div`
 display:flex;
+height : auto;
 flex-direction:column;
 margin: auto;
 align-items: center;
-box-shadow: 0 3px 6px 0 #555;
+box-shadow: 0 3px 6px 0 #000000;
 padding: 20px 20px;
 border-radius: 4px;
 width: auto;
@@ -25,8 +26,7 @@ font-weight: bold;
 function App() {
   return (
     <Container>
-    <AppLabel>Weather App</AppLabel> 
-    <CityComponent />
+    <AppLabel>Weather App</AppLabel>
     <WeatherComponent />
     </Container>
   );

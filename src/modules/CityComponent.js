@@ -18,24 +18,47 @@ margin: 10px auto;
 const SearchBox = styled.form`
 display: flex;
 flex-direction: row;
-border: black solid 1px;
+border: none;
 border-radius: 2px;
-color: black;
+color: #202225;
 font-size: 24px;
 margin: 15px auto;
 & input {
-padding: 10px;
-font-size: 18px;
-border: 10;
-outline: none;
-& button {
-padding: 10px;
+display:inline-block;
+min-width: 250px;
+width: 80px;
+padding:5px 10px;
+text-align: center;
 font-size: 18px;
 border: none;
+border-radius: 30px;
 outline: none;
 font-weight: bold;
+font-family: 'Kodchasan', sans-serif;}
+`;
 
-}
+const SearchButton = styled.form`
+display: flex;
+flex-direction: row;
+border: none;
+border-radius: 2px;
+color: black;
+font-size: 24px;
+margin: 1px auto;
+& button {
+display:inline-block;
+min-width: 270px;
+width: 80px;
+padding:5px 10px;
+color: #FFF;
+background-color: #202225;
+font-size: 18px;
+border: none;
+border-radius: 30px;
+outline: none;
+font-weight: bold;
+font-family: 'Kodchasan', sans-serif;
+cursor: pointer;
 }
 `;
 
@@ -46,8 +69,10 @@ const CityComponent =()=>{
     <ChooseCityLabel>Fide weather of your city</ChooseCityLabel>
     <SearchBox>
  <input placeholder="City"/>
-    <button>Search</button>
     </SearchBox>
+    <SearchButton>
+    <button>Search</button>
+    </SearchButton>
     </>
   );
 };
