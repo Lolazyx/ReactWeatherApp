@@ -11,7 +11,7 @@ export const WeatherInfoIcons = {
 
 const WeatherCondition = styled.div`
 display: flex;
-flex-direction: row;
+flex-direction: column;
 align-items: center;
 min-width: 250px;
 width: 80px;
@@ -21,8 +21,10 @@ margin: 30px auto;
 `;
 
 const Condition = styled.span`
-height: 1px;
+display: flex;
+flex-direction: row
 align-items: center;
+height: 1px;
 margin: 20px auto;
 font-size: 14px;
 color: #fff;
@@ -33,9 +35,8 @@ font-size: 30px;}
   `;
 
 const WeatherLogo = styled.img`
-width: 100px;
-height: 100px;
-margin: 5px auto;
+width: 140px;
+height: 140px;
 `;
 
 const Location = styled.span`
@@ -106,7 +107,7 @@ const WeatherInfoComponent =(props)=>{
 
 const WeatherComponent =(props)=>{
 const {weather} = props;
-const isDay = weather?.weather[0].icon?.include('d');
+const isDay = weather?.weather[0].icon?.includes('d')
 const getTime = (timeStamp) => {
         return `${new Date(timeStamp * 1000).getHours()} : ${new Date(timeStamp * 1000).getMinutes()}`
 }
@@ -114,11 +115,11 @@ const getTime = (timeStamp) => {
   return (
     <>
     <WeatherCondition>
-    <Condition><span>30 °C</span> | Couldy
-    </Condition>
     <WeatherLogo src="icon/weathericon.png" />
-    </WeatherCondition>
     <Location>{`${weather?.name}, ${weather?.sys?.country}`}</Location>
+    <Condition><span>{`${Math.floor(weather?.main?.temp - 237)}°C`}</span>{`  . ${weather?.weather[0].description}`}
+    </Condition>
+    </WeatherCondition>
     <WeatherInfoLabel>Weather Info</WeatherInfoLabel>
     <WeatherInfoContainer>
     <WeatherInfoComponent name={isDay ? "sunset" : "sunrise"} value={getTime(weather?.sys[isDay ? "sunset" : "sunrise"])}/>
