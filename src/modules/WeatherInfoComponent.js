@@ -104,7 +104,13 @@ const WeatherInfoComponent =(props)=>{
   )
 }
 
-const WeatherComponent =()=>{
+const WeatherComponent =(props)=>{
+const {weather} = props;
+const isDay = weather?.weather[0].icon?.include('d');
+const getTime = (timeStamp) => {
+        return `${new Date(timeStamp * 1000).getHours()} : ${new Date(timeStamp * 1000).getMinutes()}`
+}
+  
   return (
     <>
     <WeatherCondition>
@@ -112,13 +118,13 @@ const WeatherComponent =()=>{
     </Condition>
     <WeatherLogo src="icon/weathericon.png" />
     </WeatherCondition>
-    <Location>London, GB</Location>
+    <Location>{`${weather?.name}, ${weather?.sys?.country}`}</Location>
     <WeatherInfoLabel>Weather Info</WeatherInfoLabel>
     <WeatherInfoContainer>
-    <WeatherInfoComponent name="sunrise" value=""/>
-    <WeatherInfoComponent name="humidity" value=""/>
-    <WeatherInfoComponent name="wind" value=""/>
-    <WeatherInfoComponent name="pressure" value=""/>
+    <WeatherInfoComponent name={isDay ? "sunset" : "sunrise"} value={getTime(weather?.sys[isDay ? "sunset" : "sunrise"])}/>
+    <WeatherInfoComponent name="humidity" value={weather?.main?.humidity}/>
+    <WeatherInfoComponent name="wind" value={weather?.wind?.speed}/>
+    <WeatherInfoComponent name="pressure" value={weather?.main?.pressure}/>
     </WeatherInfoContainer>
     </>
   )

@@ -15,7 +15,9 @@ margin: 10px auto;
 `;
 
 const SearchBox = styled.form`
-display: flex;
+display: inline-block;
+min-width: 270px;
+width: 80px;
 flex-direction: row;
 border: none;
 border-radius: 2px;
@@ -23,30 +25,18 @@ color: #202225;
 font-size: 24px;
 margin: 15px auto;
 & input {
-display:inline-block;
-min-width: 250px;
+text-align: center;
+min-width: 270px;
 width: 80px;
 padding:5px 10px;
-text-align: center;
 font-size: 18px;
 border: none;
 border-radius: 30px;
 outline: none;
 font-weight: bold;
 font-family: 'Kodchasan', sans-serif;}
-`;
-
-const SearchButton = styled.form`
-display: flex;
-flex-direction: row;
-border: none;
-border-radius: 2px;
-color: black;
-font-size: 24px;
-margin: 1px auto;
 & button {
-display:inline-block;
-min-width: 270px;
+min-width: 290px;
 width: 80px;
 padding:5px 10px;
 color: #FFF;
@@ -57,8 +47,7 @@ border-radius: 30px;
 outline: none;
 font-weight: bold;
 font-family: 'Kodchasan', sans-serif;
-cursor: pointer;
-}
+cursor: pointer;}
 `;
 
 const CityComponent =(props)=>{
@@ -69,10 +58,8 @@ const CityComponent =(props)=>{
     <ChooseCityLabel>Fide weather of your city</ChooseCityLabel>
     <SearchBox onSubmit={fetchWeather}>
  <input placeholder="City" onChange={(e)=>updateCity(e.target.value)}/>
+  <button type="submit">Search</button>
     </SearchBox>
-    <SearchButton>
-    <button type="submit">Search</button>
-    </SearchButton>
     </>
   );
 };
