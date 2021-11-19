@@ -1,5 +1,4 @@
 import  React, { useState }  from "react";
-import {Navbar, Nav} from "react-bootstrap";
 import axios from "axios";
 import styled from "styled-components";
 import CityComponent from "./modules/CityComponent";
@@ -35,8 +34,6 @@ function App() {
   };
   return (
     <Container>
-    <Navbar className="justify-content-between" bg="dark">
-    </Navbar>
     <AppLabel>Weather App</AppLabel>
     {weather ? (
       <WeatherComponent weather={weather}/>
